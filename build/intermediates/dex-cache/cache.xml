@@ -3,6 +3,7 @@
 
     <item
         is-multidex="true"
+<<<<<<< HEAD
         jar="D:\Code\git_code\netaneladgame\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
@@ -18,6 +19,131 @@
         revision="25.0.2"
         sha1="0a5e7af48a7fe545ca38d80f7c539ea8dd307258">
         <dex dex="D:\Code\git_code\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_d3e9abacec6bfc532d4b101090543dfe980b8d49\classes.dex" />
+=======
+        jar="C:\Users\Netanel\.android\build-cache\cd3379ba6b2c682ee1dda048cd50ad678a0252f7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0badb6af8c4ca6a5a867fdfc072d31361d55d30c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Netanel\.android\build-cache\52483042ea2052e3773b8067f8eee5d6143bf754\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3f959d37226f617667d548f08ed2aaad03b07577\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Netanel\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-beta5\constraint-layout-solver-1.0.0-beta5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ff0dad5e4fc720f478ce8b5f6edf76a932d9b886">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.0-beta5_b3566a01bdcc9525a103934bfefe9acaef53c708\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Netanel\.android\build-cache\499dc515927f90b7f6865ce50935edb5e7181fed\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dce0f3de11781e1ee758cba483871b598c9d4931">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4bff89490d1de5a410ab82d7a9956086d78f74b4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Netanel\.android\build-cache\51d95aec981410921bdbb37e77cd55cac3e09852\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1be7634f17b24c11db5247186d5655933bf24c5e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Users\Netanel\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_ce23026f1829c5e094c4336d6724a323d173cd64\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidProjects\netaneladgame\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d175ff2271f206cf1fc6a8137f2f05c4e28c284b">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_6234df63c8a82c63cc504787611f05fb264bdd20\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Netanel\.android\build-cache\83ad30bd6883e901d53dc82b69aab9c8e2d96c5f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_997ba2d0aec77feb5b79df470b77db033955d361\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Netanel\.android\build-cache\29fa0389dd48c865d3999f1ccfa3bc48c44682c5\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_652dca6fce853641cf33568545b49658528f5b13\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidProjects\netaneladgame\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a01ab667ba4a29eb3b7b568891f363f8c6ee385a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Netanel\.android\build-cache\bbbecd2b9a773de9d4eba0d2f20914b2c98e9ab1\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_63eb8141b0532a4c73943c6cc7a8a0ae26a09880\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Netanel\.android\build-cache\1d598f692e5b772f148549c50c50249fb5d2c1bc\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_46e4d1465a800484ff3207229bde553fb69bf170\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Netanel\.android\build-cache\c03db7b2876241bb326d604465868a046bc58f2e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2325819275d38694297f14b09993ed8cd596139f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Netanel\.android\build-cache\44c8feb3d0ebbb427a0e2a7cf65ec4789718025f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="D:\AndroidProjects\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_dab7f89acadf4788eaf724f621865507b9fb4fdf\classes.dex" />
+>>>>>>> 94c9a062b29579d3309031cfc2496fe86ef3bd2b
     </item>
 
 </items>
