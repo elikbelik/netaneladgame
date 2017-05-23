@@ -74,3 +74,5 @@ build/android-profile/profile-2017-05-24-00-10-04-640.rawproto
 *.lock
 *.bin
 *.lock
+*.bin
+*.lock
