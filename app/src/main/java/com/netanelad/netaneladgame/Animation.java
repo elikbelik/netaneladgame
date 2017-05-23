@@ -5,39 +5,41 @@ import android.graphics.Bitmap;
 
 public class Animation {
 
-    private Bitmap[] m_frames;
-    private int m_currentFrame;
-    private long m_startTime;
-    private long m_delay;
-    private boolean m_playedOnce;
+    private Bitmap[] frames;
+    private int currentFrame;
+    private long startTime;
+    private long delay;
+    private boolean playedOnce;
 
     public void setFrames (Bitmap[] frames) {
-        m_frames = frames;
-        m_currentFrame = 0;
-        m_startTime = System.nanoTime();
+        this.frames = frames;
+        currentFrame = 0;
+        startTime = System.nanoTime();
     }
 
-    public void setDelay (long b) {m_delay = b;}
-    public void setFrame (int i) {m_currentFrame = i;}
+    public void setDelay (long b) {
+        delay = b;}
+    public void setFrame (int i) {
+        currentFrame = i;}
 
     public void update () {
-        long elapsed = (System.nanoTime()-m_startTime)/1000000;
+        long elapsed = (System.nanoTime()- startTime)/MainThread.SEC_TO_MILI;
 
-        if (elapsed>m_delay) {
-            m_currentFrame++;
-            m_startTime = System.nanoTime();
+        if (elapsed> delay) {
+            currentFrame++;
+            startTime = System.nanoTime();
         }
 
-        if (m_currentFrame == m_frames.length) {
-            m_currentFrame = 0;
-            m_playedOnce = true;
+        if (currentFrame == frames.length) {
+            currentFrame = 0;
+            playedOnce = true;
         }
     }
 
     public Bitmap getImage() {
-        return m_frames[m_currentFrame];
+        return frames[currentFrame];
     }
 
-    public int getFrame() {return m_currentFrame;}
-    public boolean playedOnce() {return m_playedOnce;}
+    public int getFrame() {return currentFrame;}
+    public boolean playedOnce() {return playedOnce;}
 }

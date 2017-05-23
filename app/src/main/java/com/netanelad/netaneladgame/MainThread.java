@@ -1,7 +1,6 @@
 package com.netanelad.netaneladgame;
 
 import android.graphics.Canvas;
-import android.provider.Settings;
 import android.view.SurfaceHolder;
 
 /**
@@ -10,17 +9,17 @@ import android.view.SurfaceHolder;
 
 public class MainThread extends Thread {
 
-    private int FPS = 30;
-    private double m_averageFPS;
-    private SurfaceHolder m_surfaceHolder;
-    private GamePanel m_gamePanel;
-    private boolean m_running;
-    public static Canvas m_canvas;
+    public static final int SEC_TO_MILI = 1000000;
+    private static final int FPS = 30;
+    private SurfaceHolder surfaceHolder;
+    private GamePanel gamePanel;
+    private boolean running;
+    public static Canvas canvas;
 
     public MainThread (SurfaceHolder surfaceHolder, GamePanel gamePanel) {
         super();
-        this.m_surfaceHolder = surfaceHolder;
-        this.m_gamePanel = gamePanel;
+        this.surfaceHolder = surfaceHolder;
+        this.gamePanel = gamePanel;
     }
 
     @Override
@@ -33,29 +32,29 @@ public class MainThread extends Thread {
         long frameCount = 0;
         long targetTime = 1000/FPS;
 
-        while (m_running) {
+        while (running) {
             startTime = System.nanoTime();
-            m_canvas = null;
+            canvas = null;
 
             // Try locking the canvas for pixel editing
             try {
-                m_canvas = this.m_surfaceHolder.lockCanvas();
-                synchronized (m_surfaceHolder) {
-                    this.m_gamePanel.update();
-                    this.m_gamePanel.draw(m_canvas);
+                canvas = this.surfaceHolder.lockCanvas();
+                synchronized (surfaceHolder) {
+                    this.gamePanel.update();
+                    this.gamePanel.draw(canvas);
                 }
             }
             catch (Exception e) {}
             finally {
-                if (m_canvas!=null) {
+                if (canvas !=null) {
                     try {
-                        m_surfaceHolder.unlockCanvasAndPost(m_canvas);
+                        surfaceHolder.unlockCanvasAndPost(canvas);
                     }
                     catch (Exception e) {e.printStackTrace();}
                 }
             }
 
-            timeMillis = (System.nanoTime()-startTime)/1000000;
+            timeMillis = (System.nanoTime()-startTime)/SEC_TO_MILI;
             waitTime = targetTime - timeMillis;
 
             try {
@@ -66,15 +65,13 @@ public class MainThread extends Thread {
             totalTime += System.nanoTime()-startTime;
             frameCount++;
             if (frameCount == FPS) {
-                m_averageFPS = 1e9*frameCount/totalTime;
                 frameCount = 0;
                 totalTime = 0;
-                System.out.println(m_averageFPS);
             }
         }
     }
 
     public void setRunning(boolean b) {
-        m_running = b;
+        running = b;
     }
 }

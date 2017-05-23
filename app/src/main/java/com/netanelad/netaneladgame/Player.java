@@ -3,72 +3,60 @@ package com.netanelad.netaneladgame;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
-public class Player extends GameObject {
-    private Bitmap m_spriteSheet;
-    private int m_score;
-    private boolean m_up;
-    private boolean m_playing;
-    private Animation m_animation = new Animation();
-    private long m_startTime;
+public class Player extends AnimatedGameObject {
+    private static final int X_POSITION = 100;
+    private static final int MIN_TIME_INTERVAL_FOR_SCORE = 100;
+    private static final int DY_INCREASE_RATE = 1;
+    private static final int MIN_DY = -14;
+    private static final int MAX_DY = 14;
+    private static final int ACCELERATION = 2;
+    private int score;
+    private boolean isUp;
+    private boolean isPlaying;
+    private long startTime;
 
     public Player(Bitmap res, int w, int h, int numFrames) {
-        m_x = 100;
-        m_y = GamePanel.HEIGHT/2;
-        m_dy = 0;
-        m_score = 0;
-        m_height = h;
-        m_width = w;
-
-        Bitmap[] image = new Bitmap[numFrames];
-        m_spriteSheet = res;
-
-        for (int i=0; i<image.length; i++) {
-            image[i] = Bitmap.createBitmap(m_spriteSheet, i*m_width, 0, m_width, m_height);
-        }
-
-        m_animation.setFrames(image);
-        m_animation.setDelay(10);
-        m_startTime = System.nanoTime();
+        super(X_POSITION,GamePanel.HEIGHT/2,0,0,w,h,res,numFrames,numFrames);
+        score = 0;
+        startTime = System.nanoTime();
     }
 
-    public void setUp (boolean b) {m_up = b;}
+    public void setUp (boolean b) {
+        isUp = b;
+    }
 
     public void update() {
-        long elapsed = (System.nanoTime()-m_startTime)/1000000;
-        if (elapsed>100) {
-            m_score++;
-            m_startTime = System.nanoTime();
+        long elapsed = (System.nanoTime()- startTime)/MainThread.SEC_TO_MILI;
+        if (elapsed> MIN_TIME_INTERVAL_FOR_SCORE) {
+            score++;
+            startTime = System.nanoTime();
         }
-        m_animation.update();
+        super.update();
 
-        if (m_up) {
-            m_dy -= 1;
+        if (isUp) {
+            dy -= DY_INCREASE_RATE;
         }
         else {
-            m_dy += 1;
+            dy += DY_INCREASE_RATE;
         }
 
-        if (m_dy>14) m_dy = 14;
-        if (m_dy<-14) m_dy = -14;
+        if (dy >MAX_DY) dy = MAX_DY;
+        if (dy <MIN_DY) dy = MIN_DY;
 
-        m_y += m_dy*2;
-        if (m_y < 0) {
-            m_y = 0;
+        y += dy *ACCELERATION;
+        if (y < 0) {
+            y = 0;
             resetDy();
         }
-        if (m_y > GamePanel.HEIGHT-m_height) {
-            m_y = GamePanel.HEIGHT-m_height;
+        if (y > GamePanel.HEIGHT- height) {
+            y = GamePanel.HEIGHT- height;
             resetDy();
         }
     }
 
-    public void draw(Canvas canvas) {
-        canvas.drawBitmap(m_animation.getImage(), m_x, m_y, null);
-    }
-
-    public int getScore() {return m_score;}
-    public boolean getPlaying() {return m_playing;}
-    public void setPlaying (boolean b) {m_playing = b;}
-    public void resetDy() {m_dy = 0;}
-    public void resetScore() {m_score = 0;}
+    public int getScore() {return score;}
+    public boolean getPlaying() {return isPlaying;}
+    public void setPlaying (boolean b) {isPlaying = b;}
+    public void resetDy() {dy = 0;}
+    public void resetScore() {score = 0;}
 }

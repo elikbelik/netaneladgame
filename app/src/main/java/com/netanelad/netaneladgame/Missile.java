@@ -9,49 +9,31 @@ import java.util.Random;
  * Created by elad on 28/04/2017.
  */
 
-public class Missile extends GameObject{
-    private int m_score;
-    private int m_speed;
-    private Random m_ramd = new Random();
-    private Animation m_animation = new Animation();
-    private Bitmap m_spritesheet;
+public class Missile extends AnimatedGameObject{
+    private static final int MIN_SPEED = 7;
+    private static final int MAX_SPEED = 40;
+    private static final int SPEED_PER_SCORE_RATIO = 30;
+    private static final int WIDTH_OFFSET_FOR_COLLISION = 10;
+    private int speed;
+    private Random rand = new Random();
 
-    public Missile(Bitmap res, int x, int y, int w, int h, int s, int numFrames) {
-        m_x = x;
-        m_y = y;
-        m_width = w;
-        m_height = h;
-        m_score = s;
-        m_speed = 7 + (int) (m_ramd.nextDouble()*m_score/30);
+    public Missile(Bitmap res, int x, int y, int w, int h, int score, int numFrames) {
+        super(x,y,0,0,w,h,res,numFrames,1);
+        speed = MIN_SPEED + (int) (rand.nextDouble()* score /SPEED_PER_SCORE_RATIO);
         // Cap missle speed
-        if (m_speed > 40) m_speed = 40;
+        if (speed > MAX_SPEED) speed = MAX_SPEED;
 
-        Bitmap[] image = new Bitmap[numFrames];
-        m_spritesheet = res;
-
-        for (int i=0; i<image.length; i++) {
-            image[i] = Bitmap.createBitmap(m_spritesheet, 0, i*m_height, m_width, m_height);
-        }
-
-        m_animation.setFrames(image);
-        m_animation.setDelay(100-m_speed);
+        animation.setDelay(100- speed);
     }
 
     public void update() {
-        m_x-=m_speed;
-        m_animation.update();
-    }
-
-    public void draw (Canvas canvas) {
-        try {
-            canvas.drawBitmap(m_animation.getImage(), m_x, m_y, null);
-        }
-        catch (Exception e) {}
+        x -= speed;
+        super.update();
     }
 
     @Override
     public int getWidth() {
         // Offset slightly for more realistic collision detection
-        return m_width-10;
+        return width - WIDTH_OFFSET_FOR_COLLISION;
     }
 }

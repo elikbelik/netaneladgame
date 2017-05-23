@@ -33,3 +33,14 @@ TODO:
 - Teach Nethanel the code. (Elad)
 - Add voice command! (Elad)-
  */
+
+/*
+TODO: ELAD:
+- Make botborder and topborder the same class
+- Make Explotion inherit from AnimatedGameObject
+- Code cleanup in GamePanel
+    - Use single array for all
+    - Create function that is "collision" and one that is not if not relevant
+    - Set the text an object itself?
+    - Clean m_*
+ */

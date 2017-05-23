@@ -8,26 +8,14 @@ import android.graphics.Canvas;
  */
 
 public class BotBorder extends GameObject{
-
-    private Bitmap m_image;
+    private static final int WIDTH = 20;
+    private static final int HEIGHT = 200;
 
     public BotBorder (Bitmap res, int x, int y) {
-        m_height = 200;
-        m_width = 20;
-        m_x = x;
-        m_y = y;
-        m_dx = GamePanel.MOVESPEED;
-        m_image = Bitmap.createBitmap(res, 0, 0, m_width, m_height);
+        super(x,y,GamePanel.MOVESPEED,0,WIDTH,HEIGHT,res);
     }
 
     public void update() {
-        m_x+=m_dx;
-    }
-
-    public void draw (Canvas canvas) {
-        try {
-            canvas.drawBitmap(m_image, m_x, m_y, null);
-        }
-        catch (Exception e) {}
+        x += dx;
     }
 }
