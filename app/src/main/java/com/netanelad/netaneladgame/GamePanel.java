@@ -172,12 +172,12 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 // First missile always goes down the middle
                 if (m_missiles.size() == 0) {
                     m_missiles.add(new Missile(BitmapFactory.decodeResource(getResources(),
-                            R.drawable.missile),WIDTH+10, HEIGHT/2, 45, 15, m_player.getScore(), 13));
+                            R.drawable.missile),WIDTH+10, HEIGHT/2, 45, 15, m_player.getScore(), 8));
                 }
                 else {
                     m_missiles.add(new Missile(BitmapFactory.decodeResource(getResources(),R.drawable.missile),
                             WIDTH+10, (int)(m_rand.nextDouble()*HEIGHT - m_maxBorderHeight*2) + m_maxBorderHeight,
-                            45, 15, m_player.getScore(), 13));
+                            45, 15, m_player.getScore(), 8));
                 }
                 // Reset timer
                 m_missilesStartTime = System.nanoTime();
