@@ -13,3 +13,5 @@ app/src/main/res/drawable-nodpi/grassbg1_new.png
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock
+.idea/libraries/animated_vector_drawable_25_3_1.xml
+.idea/libraries/appcompat_v7_25_3_1.xml
