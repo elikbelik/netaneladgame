@@ -59,3 +59,5 @@ build/android-profile/profile-2017-05-24-00-02-23-729.rawproto
 app/app.iml
 *.rawproto
 build/intermediates/dex-cache/cache.xml
+*.bin
+*.lock
