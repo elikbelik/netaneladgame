@@ -123,3 +123,15 @@ local.properties
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock
 app/app.iml
+.gradle/3.3/taskArtifacts/fileHashes.bin
+.gradle/3.3/taskArtifacts/fileSnapshots.bin
+.gradle/3.3/taskArtifacts/taskArtifacts.bin
+.gradle/3.3/taskArtifacts/taskArtifacts.lock
+app/app.iml
+build/intermediates/dex-cache/cache.xml
+.gradle/3.3/taskArtifacts/fileHashes.bin
+.gradle/3.3/taskArtifacts/fileSnapshots.bin
+.gradle/3.3/taskArtifacts/taskArtifacts.bin
+.gradle/3.3/taskArtifacts/taskArtifacts.lock
+app/app.iml
+build/intermediates/dex-cache/cache.xml
