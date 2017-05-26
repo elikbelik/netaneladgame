@@ -118,3 +118,8 @@ build/android-profile/profile-2017-05-24-00-10-04-640.rawproto
 .idea/libraries/support_v4_25_3_1.xml
 .idea/libraries/support_vector_drawable_25_3_1.xml
 local.properties
+.gradle/3.3/taskArtifacts/fileHashes.bin
+.gradle/3.3/taskArtifacts/fileHashes.bin
+.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin
+.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock
+app/app.iml
