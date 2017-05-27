@@ -148,3 +148,5 @@ build/intermediates/dex-cache/cache.xml
 *.lock
 local.properties
 build/intermediates/dex-cache/cache.xml
+*.bin
+*.lock
