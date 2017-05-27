@@ -79,3 +79,6 @@ build/android-profile/profile-2017-05-24-00-10-04-640.rawproto
 .idea/misc.xml
 *.lock
 *.bin
+.idea/misc.xml
+*.bin
+*.lock
