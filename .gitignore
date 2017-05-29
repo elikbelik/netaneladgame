@@ -160,3 +160,5 @@ build/intermediates/dex-cache/cache.xml
 *.lock
 *.bin
 *.lock
+*.bin
+*.lock
