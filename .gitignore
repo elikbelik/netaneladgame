@@ -165,3 +165,6 @@ build/intermediates/dex-cache/cache.xml
 *.bin
 *.lock
 >>>>>>> d06ce08c1775a7d9dd93f9d0f44fe53f0e149d6e
+.gradle/3.3/taskArtifacts/fileSnapshots.bin
+*.bin
+*.lock
