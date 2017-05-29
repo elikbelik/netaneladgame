@@ -31,3 +31,5 @@ local.properties
 build/android-profile/profile-2017-05-24-00-10-04-640.rawproto
 *.bin
 *.lock
+*.lock
+*.lock
