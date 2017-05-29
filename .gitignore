@@ -28,3 +28,5 @@ local.properties
 =======
 d24627f8bd00e9b79c4252d794839afd51d99e61
 >>>>>>> 5f5ca6878c4e7294d77b2565700be5e5e9fc98d2
+*.bin
+*.lock

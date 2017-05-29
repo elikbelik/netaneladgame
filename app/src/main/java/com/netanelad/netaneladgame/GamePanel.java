@@ -26,28 +26,29 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public static final int HEIGHT = 480;
     public static final int MOVESPEED = -5;
     private static final int TIME_FOR_SMOKEPUFF = 120;
+    private static final int TIME_FOR_RESET = 1000;
     private static final int SMOKEPUFF_LOCATION_OFFSET = 10;
+    private static final int EXPLOSION_LOCATION_OFFSET = 30;
+    private static final int MISSILE_MAX_TIME_DELAY = 2000;
+    private static final int MISSILE_SCORE_TO_TIME_RATIO = 4;
 
     // Panel control members
     private long smokeStartTime;
     private long missilesStartTime;
+    private long resetstartTime;
     private MainThread thread;
     private Background bg;
     private Player player;
     private ArrayList<GameObject> objectsList;
     private Random rand = new Random();
-    private boolean m_topDown = true;
-    private boolean m_botDown = true;
-    private boolean m_newGameCreated;
+    private boolean newGameCreated;
+    private Explosion explosion;
+    private boolean reset;
+    private boolean dissapear;
+    private boolean notFirstRun = false;
+    private int bestScore;
+    SharedPreferences sharedPref;
 
-
-    private Explosion m_explosion;
-    private long m_startReset;
-    private boolean m_reset;
-    private boolean m_dissapear;
-    private boolean m_started;
-    private int m_best;
-    SharedPreferences m_sharedPref;
 
     public GamePanel(Context context) {
         super(context);
@@ -59,8 +60,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         setFocusable(true);
 
         // Preferences to save the best score
-        m_sharedPref = context.getSharedPreferences(PREF_NAME,Context.MODE_PRIVATE);
-        m_best = m_sharedPref.getInt(PREF_SCORE_NAME, 0);
+        sharedPref = context.getSharedPreferences(PREF_NAME,Context.MODE_PRIVATE);
+        bestScore = sharedPref.getInt(PREF_SCORE_NAME, 0);
     }
 
     @Override
@@ -103,13 +104,13 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            if (!player.getPlaying() && m_newGameCreated && m_reset) {
+            if (!player.getPlaying() && newGameCreated && reset) {
                 player.setPlaying(true);
                 player.setUp(true);
             }
             if (player.getPlaying()) {
-                if (!m_started) m_started = true;
-                m_reset = false;
+                notFirstRun = true;
+                reset = false;
                 player.setUp(true);
             }
             return true;
@@ -127,21 +128,9 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
             player.update();
             Border.updateScore(player.getScore());
 
-            // Add missiles on timer
-            long missileElapsed = (System.nanoTime()- missilesStartTime)/1000000;
-            if (missileElapsed > (2000 - player.getScore()/4)) {
-                objectsList.add(new Missile(getContext(), WIDTH+10,
-                        (int)(rand.nextDouble()*HEIGHT), player.getScore()));
-                // Reset timer
-                missilesStartTime = System.nanoTime();
-            }
-
-            // Add smokepuffs on timer
-            long elapsed = (System.nanoTime() - smokeStartTime)/ MainThread.SEC_TO_MILI;
-            if (elapsed > TIME_FOR_SMOKEPUFF) {
-                objectsList.add(new Smokepuff(player.getX(), player.getY()+SMOKEPUFF_LOCATION_OFFSET));
-                smokeStartTime = System.nanoTime();
-            }
+            // Add objects on timer
+            addMissile();
+            addSmokepuffs();
 
             // Update and remove and check for collision
             for (int i=0; i< objectsList.size(); i++) {
@@ -154,25 +143,45 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 if (obj.isColidable() && collision(obj, player)) {
                     objectsList.remove(i);
                     player.setPlaying(false);
-                    break;
+                    i--;
                 }
             }
         }
         else {
             player.resetDy();
-            if (!m_reset) {
-                m_newGameCreated = false;
-                m_startReset = System.nanoTime();
-                m_reset = true;
-                m_dissapear = true;
-                m_explosion = new Explosion(getContext(), BitmapFactory.decodeResource(getResources(),
-                        R.drawable.explosion), player.getX(), player.getY()-30,100,100,25);
+            if (!reset) {
+                newGameCreated = false;
+                resetstartTime = System.nanoTime();
+                reset = true;
+                dissapear = true;
+                explosion = new Explosion(getContext(), player.getX(), player.getY()-EXPLOSION_LOCATION_OFFSET);
             }
-            m_explosion.update();
-            long resetElapsed = (System.nanoTime()-m_startReset)/1000000;
-            if (resetElapsed > 1000 && !m_newGameCreated) {
+            explosion.update();
+            long resetElapsed = (System.nanoTime()- resetstartTime)/MainThread.SEC_TO_MILI;
+            if (resetElapsed > TIME_FOR_RESET && !newGameCreated) {
                 newGame();
             }
+            if (newGameCreated) {
+                bg.update();
+            }
+        }
+    }
+
+    public void addMissile() {
+        long missileElapsed = (System.nanoTime()- missilesStartTime)/MainThread.SEC_TO_MILI;
+        if (missileElapsed > (MISSILE_MAX_TIME_DELAY - player.getScore()/MISSILE_SCORE_TO_TIME_RATIO)) {
+            objectsList.add(new Missile(getContext(), WIDTH+10,
+                    (int)(rand.nextDouble()*HEIGHT), player.getScore()));
+            // Reset timer
+            missilesStartTime = System.nanoTime();
+        }
+    }
+
+    public void addSmokepuffs() {
+        long elapsed = (System.nanoTime() - smokeStartTime)/ MainThread.SEC_TO_MILI;
+        if (elapsed > TIME_FOR_SMOKEPUFF) {
+            objectsList.add(new Smokepuff(player.getX(), player.getY()+SMOKEPUFF_LOCATION_OFFSET));
+            smokeStartTime = System.nanoTime();
         }
     }
 
@@ -193,18 +202,18 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
             canvas.scale(scaleFactorX, scaleFactorY);
             bg.draw(canvas);
-            if (!m_dissapear) {
+            if (!dissapear) {
                 player.draw(canvas);
             }
 
             for (GameObject obj : objectsList) {
-                if (!m_dissapear || !obj.hideWhenDead())
+                if (!dissapear || !obj.hideWhenDead())
                     obj.draw(canvas);
             }
 
             // Draw explosion
-            if (m_started) {
-                m_explosion.draw(canvas);
+            if (notFirstRun) {
+                explosion.draw(canvas);
             }
 
             drawText(canvas);
@@ -213,7 +222,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void newGame() {
-        m_dissapear = false;
+        dissapear = false;
         for (int i=0; i < objectsList.size(); i++) {
             if (objectsList.get(i).removeWhenDead()) {
                 objectsList.remove(i);
@@ -225,10 +234,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         player.resetDy();
         player.setY(HEIGHT/2);
 
-        if (player.getScore() > m_best) {
-            m_best = player.getScore();
-            SharedPreferences.Editor editor = m_sharedPref.edit();
-            editor.putInt(PREF_SCORE_NAME, m_best);
+        if (player.getScore() > bestScore) {
+            bestScore = player.getScore();
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putInt(PREF_SCORE_NAME, bestScore);
             editor.commit();
         }
         player.resetScore();
@@ -241,7 +250,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
             objectsList.add(new Border(getContext(), i* Border.BORDER_WIDTH, 10+i, Border.BorderType.Bottom));
         }
 
-        m_newGameCreated = true;
+        newGameCreated = true;
     }
 
     public void drawText (Canvas canvas) {
@@ -250,12 +259,12 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         paint.setTextSize(30);
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
         canvas.drawText("DISTANCE: " + player.getScore(), 14, HEIGHT-10, paint);
-        canvas.drawText("BEST: " + m_best, WIDTH - 213, HEIGHT-10, paint);
+        canvas.drawText("BEST: " + bestScore, WIDTH - 213, HEIGHT-10, paint);
         paint.setColor(Color.DKGRAY);
         canvas.drawText("DISTANCE: " + player.getScore(), 10, HEIGHT-10, paint);
-        canvas.drawText("BEST: " + m_best, WIDTH - 215, HEIGHT - 10, paint);
+        canvas.drawText("BEST: " + bestScore, WIDTH - 215, HEIGHT - 10, paint);
 
-        if (!player.getPlaying() && m_newGameCreated && m_reset) {
+        if (!player.getPlaying() && newGameCreated && reset) {
             Paint paint1 = new Paint();
             paint1.setTextSize(40);
             paint1.setColor(Color.LTGRAY);
