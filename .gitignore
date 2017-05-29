@@ -1,7 +1,6 @@
 app/app.iml
 local.properties
 .idea/misc.xml
-*.xml
 *.rawproto
 *.bin
 *.lock
@@ -11,3 +10,4 @@ local.properties
 .gradle/3.3/taskArtifacts/taskArtifacts.lock
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock
+.idea/vcs.xml
