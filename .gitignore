@@ -155,3 +155,6 @@ local.properties
 build/intermediates/dex-cache/cache.xml
 *.bin
 *.lock
+*.bin
+.gradle/3.3/taskArtifacts/taskArtifacts.lock
+.idea/misc.xml
