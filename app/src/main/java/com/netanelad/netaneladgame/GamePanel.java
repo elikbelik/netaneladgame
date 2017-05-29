@@ -35,9 +35,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private Background bg;
     private Player player;
     private ArrayList<GameObject> objectsList;
-    private Random m_rand = new Random();
-    private int m_maxBorderHeight;
-    private int m_minBorderHeight;
+    private Random rand = new Random();
     private boolean m_topDown = true;
     private boolean m_botDown = true;
     private boolean m_newGameCreated;
@@ -133,7 +131,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
             long missileElapsed = (System.nanoTime()- missilesStartTime)/1000000;
             if (missileElapsed > (2000 - player.getScore()/4)) {
                 objectsList.add(new Missile(getContext(), WIDTH+10,
-                        (int)(m_rand.nextDouble()*HEIGHT - m_maxBorderHeight*2) + m_maxBorderHeight, player.getScore()));
+                        (int)(rand.nextDouble()*HEIGHT), player.getScore()));
                 // Reset timer
                 missilesStartTime = System.nanoTime();
             }
@@ -224,8 +222,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         }
         Border.resetBordersCounter();
 
-        m_minBorderHeight = 5;
-        m_maxBorderHeight = 30;
         player.resetDy();
         player.setY(HEIGHT/2);
 
