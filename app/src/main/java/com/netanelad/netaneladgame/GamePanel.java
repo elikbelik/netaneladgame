@@ -222,6 +222,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 i--;
             }
         }
+        TopBorder.resetBordersCounter();
 
         m_minBorderHeight = 5;
         m_maxBorderHeight = 30;

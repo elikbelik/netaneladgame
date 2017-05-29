@@ -23,7 +23,8 @@ public class TopBorder extends GameObject{
     private BorderType borderType;
 
     public TopBorder (Context context, int x, int h, BorderType t) {
-        super(x, (t==BorderType.Bottom) ? GamePanel.HEIGHT-h : h-BORDER_HEIGHT, GamePanel.MOVESPEED, 0, BORDER_WIDTH, BORDER_HEIGHT,
+        super(x, (t==BorderType.Bottom) ? GamePanel.HEIGHT-h : h-BORDER_HEIGHT,
+                GamePanel.MOVESPEED, 0, BORDER_WIDTH, BORDER_HEIGHT,
                 BitmapFactory.decodeResource(context.getResources(), R.drawable.brick));
         borderType = t;
 
@@ -41,16 +42,14 @@ public class TopBorder extends GameObject{
         // Borders reset themselves
         if (x+width < 0) {
             x += width*counter.get(borderType);
-            y += movementDirection;
             lastHeight += movementDirection;
-            y = (borderType==BorderType.Bottom) ? GamePanel.HEIGHT-height : height-BORDER_HEIGHT;
+            y = ((borderType==BorderType.Bottom) ? GamePanel.HEIGHT-lastHeight : lastHeight-BORDER_HEIGHT);
             int maxBorderHeight = Math.min(BORDER_HEIGHT, MIN_MAX_HEIGHT + score/PROGRESS_DENUM);
             int minBorderHeight = MIN_MIN_HEIGHT+ score/PROGRESS_DENUM;
-            int h = (borderType==BorderType.Bottom) ? GamePanel.HEIGHT-y : y-BORDER_HEIGHT;
             // Replace direction if needed
-            if (h>=maxBorderHeight)
+            if (lastHeight>=maxBorderHeight)
                 movementDirection = -1;
-            else if (h<=minBorderHeight)
+            else if (lastHeight<=minBorderHeight)
                 movementDirection = 1;
         }
     }

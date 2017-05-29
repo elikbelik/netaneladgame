@@ -48,7 +48,7 @@ public abstract class GameObject {
     public boolean isColidable () { return true; }
 
     public boolean shouldRemove () {
-        return y+width < 0;
+        return x+width < 0;
     }
 
     public boolean removeWhenDead () { return false; }
