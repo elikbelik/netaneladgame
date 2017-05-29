@@ -3,3 +3,5 @@ local.properties
 .idea/misc.xml
 *.xml
 *.rawproto
+*.bin
+*.lock
