@@ -29,3 +29,5 @@ local.properties
 .gradle/3.3/taskArtifacts/taskArtifacts.bin
 .gradle/3.3/taskArtifacts/taskArtifacts.lock
 build/android-profile/profile-2017-05-24-00-10-04-640.rawproto
+*.bin
+*.lock
