@@ -167,7 +167,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 m_startReset = System.nanoTime();
                 m_reset = true;
                 m_dissapear = true;
-                m_explosion = new Explosion(BitmapFactory.decodeResource(getResources(),
+                m_explosion = new Explosion(getContext(), BitmapFactory.decodeResource(getResources(),
                         R.drawable.explosion), player.getX(), player.getY()-30,100,100,25);
             }
             m_explosion.update();
