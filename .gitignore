@@ -148,6 +148,16 @@ build/intermediates/dex-cache/cache.xml
 .gradle/3.3/taskArtifacts/taskArtifacts.lock
 app/app.iml
 build/intermediates/dex-cache/cache.xml
+<<<<<<< HEAD
+.gradle/3.3/taskArtifacts/fileHashes.bin
+.gradle/3.3/taskArtifacts/fileSnapshots.bin
+.gradle/3.3/taskArtifacts/taskArtifacts.bin
+.gradle/3.3/taskArtifacts/taskArtifacts.lock
+.idea/misc.xml
+*.bin
+*.lock
+.idea/misc.xml
+=======
 >>>>>>> 7269799654cfe4996646c9cb6fd7bb5fe458b728
 *.bin
 *.lock
@@ -160,5 +170,12 @@ build/intermediates/dex-cache/cache.xml
 *.lock
 *.bin
 *.lock
+<<<<<<< HEAD
+*.bin
+*.lock
+=======
+>>>>>>> 7f7b6f9eece1c7be3f539ce9044285c764d2f001
+*.bin
+>>>>>>> 9a9b4f666e6e2ff4448cf3a44463023c476bb271
 *.bin
 *.lock
