@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
 public class Explosion extends AnimatedGameObject {
     private static final int IMAGES_PER_ROW = 5;
     private Context context;
+
     public Explosion (Context context, Bitmap res, int x, int y, int w, int h, int numFrames) {
         super(x,y,0,0,w,h,res,numFrames,IMAGES_PER_ROW);
         this.context = context;
@@ -18,8 +19,8 @@ public class Explosion extends AnimatedGameObject {
     public void draw (Canvas canvas) {
         if (!animation.playedOnce()) {
             super.draw(canvas);
-            playSound();
-
+            Sounds sounds = new Sounds();
+            sounds.play_explosion_sound(this.context);
         }
     }
 
