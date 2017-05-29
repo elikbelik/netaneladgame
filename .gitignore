@@ -69,6 +69,11 @@ build/intermediates/dex-cache/cache.xml
 .gradle/3.3/taskArtifacts/taskArtifacts.bin
 .gradle/3.3/taskArtifacts/taskArtifacts.lock
 build/android-profile/profile-2017-05-24-00-10-04-640.rawproto
+<<<<<<< HEAD
+*.bin
+*.lock
+*.lock
+=======
 >>>>>>> e9381023ff002f5b062764858eec62a9c1afa2ab
 *.bin
 *.lock
@@ -76,6 +81,14 @@ build/android-profile/profile-2017-05-24-00-10-04-640.rawproto
 *.lock
 *.bin
 *.lock
+<<<<<<< HEAD
+.idea/misc.xml
+*.lock
+*.bin
+.idea/misc.xml
+*.bin
+*.lock
+=======
 .idea/libraries/animated_vector_drawable_25_3_1.xml
 .idea/libraries/appcompat_v7_25_3_1.xml
 .idea/libraries/animated_vector_drawable_25_3_1.xml
@@ -135,6 +148,7 @@ build/intermediates/dex-cache/cache.xml
 .gradle/3.3/taskArtifacts/taskArtifacts.lock
 app/app.iml
 build/intermediates/dex-cache/cache.xml
+<<<<<<< HEAD
 .gradle/3.3/taskArtifacts/fileHashes.bin
 .gradle/3.3/taskArtifacts/fileSnapshots.bin
 .gradle/3.3/taskArtifacts/taskArtifacts.bin
@@ -143,3 +157,18 @@ build/intermediates/dex-cache/cache.xml
 *.bin
 *.lock
 .idea/misc.xml
+=======
+>>>>>>> 7269799654cfe4996646c9cb6fd7bb5fe458b728
+*.bin
+*.lock
+local.properties
+build/intermediates/dex-cache/cache.xml
+*.bin
+>>>>>>> bd6145e325a730a564dc690aed7038e5a7741cf9
+*.lock
+*.bin
+*.lock
+*.bin
+*.lock
+>>>>>>> 7f7b6f9eece1c7be3f539ce9044285c764d2f001
+*.bin
