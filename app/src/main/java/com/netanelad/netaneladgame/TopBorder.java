@@ -10,6 +10,7 @@ import java.util.Map;
 public class TopBorder extends GameObject{
     public enum BorderType {Top, Bottom};
     public static final int BORDER_WIDTH = 20;
+    private static final int BORDER_HEIGHT = 200;
     // Increase to slow down difficulty progression, decrease to speed up difficulty progression
     private static final int PROGRESS_DENUM = 20;
     private static final int MIN_MAX_HEIGHT = 30;
@@ -20,13 +21,12 @@ public class TopBorder extends GameObject{
     private static Map<BorderType, Integer> counter = new HashMap<BorderType, Integer>();
     private Bitmap m_image;
     private BorderType borderType;
-    private Context context;
 
-    public TopBorder (Context context, int x, int y, int h, BorderType t) {
-        super(x, y, GamePanel.MOVESPEED, 0, BORDER_WIDTH,h,
+    public TopBorder (Context context, int x, int h, BorderType t) {
+        super(x, (t==BorderType.Bottom) ? GamePanel.HEIGHT-h : h-BORDER_HEIGHT, GamePanel.MOVESPEED, 0, BORDER_WIDTH, BORDER_HEIGHT,
                 BitmapFactory.decodeResource(context.getResources(), R.drawable.brick));
         borderType = t;
-        this.context = context;
+        height = h;
 
         // Count how many object from the same type has been created
         if (!counter.containsKey(borderType))
@@ -44,8 +44,8 @@ public class TopBorder extends GameObject{
             x += width*counter.get(borderType);
             height = lastHeight + movementDirection;
             lastHeight = height;
-            image = Bitmap.createBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.brick), 0, 0, width, height);
-            int maxBorderHeight = Math.min(GamePanel.HEIGHT/4, MIN_MAX_HEIGHT + score/PROGRESS_DENUM);
+            y = (borderType==BorderType.Bottom) ? GamePanel.HEIGHT-height : height-BORDER_HEIGHT;
+            int maxBorderHeight = Math.min(BORDER_HEIGHT, MIN_MAX_HEIGHT + score/PROGRESS_DENUM);
             int minBorderHeight = MIN_MIN_HEIGHT+ score/PROGRESS_DENUM;
             // Replace direction if needed
             if (height>=maxBorderHeight)
@@ -77,48 +77,21 @@ public class TopBorder extends GameObject{
     if (player.getScore()%50 == 0) {
         m_topBorder.add(new TopBorder(BitmapFactory.decodeResource(getResources(), R.drawable.brick),
             m_topBorder.get(m_topBorder.size()-1).getX()+20,0,(int)(m_rand.nextDouble()*m_maxBorderHeight)+1));
+
+                    // Every 40 points insert randomly placed top blocks that break the pattern
+        if (player.getScore()%40 == 0) {
+            m_botBorder.add(new BotBorder(BitmapFactory.decodeResource(getResources(), R.drawable.brick),
+                    m_botBorder.get(m_botBorder.size()-1).getX()+20,(int)(m_rand.nextDouble()*m_maxBorderHeight)+HEIGHT-m_maxBorderHeight));
+        }
+        for (int i=0; i<m_botBorder.size(); i++) {
+            m_botBorder.get(i).update();
+            if (m_botBorder.get(i).getX()<-20) {
+                // Remove element of arraylist, replace it by adding a new one
+                m_botBorder.remove(i);
+                i--;
+
     */
-    // TODO: Calculate topdown
-    /*
-    // Calculate topdown which determines the direction the border is moving (up or down)
-                if (m_topBorder.get(m_topBorder.size()-1).getHeight() >= m_maxBorderHeight) {
-        m_topDown = false;
-    }
-                if (m_topBorder.get(m_topBorder.size()-1).getHeight()<=m_minBorderHeight) {
-        m_topDown = true;
-    }
-    if (m_topDown) {
-                    m_topBorder.add(new TopBorder(BitmapFactory.decodeResource(getResources(), R.drawable.brick),
-                            m_topBorder.get(m_topBorder.size()-1).getX()+20, 0, m_topBorder.get(m_topBorder.size()-1).getHeight()+1));
-                }
-                // New border added will have smaller height
-                else {
-                    m_topBorder.add(new TopBorder(BitmapFactory.decodeResource(getResources(), R.drawable.brick),
-                            m_topBorder.get(m_topBorder.size()-1).getX()+20, 0, m_topBorder.get(m_topBorder.size()-1).getHeight()-1));
-                }
-    */
-    // TODO: Set the initial borders heights
-    /*
-    if (i==0) {
-                m_topBorder.add(new TopBorder(BitmapFactory.decodeResource(getResources(), R.drawable.brick),
-                        i * 20, 0, 10));
-                m_botBorder.add(new BotBorder(BitmapFactory.decodeResource(getResources(),R.drawable.brick),
-                        i*20, HEIGHT-m_minBorderHeight));
-            }
-            else {
-                m_topBorder.add(new TopBorder(BitmapFactory.decodeResource(getResources(), R.drawable.brick),
-                        i * 20, 0, m_topBorder.get(i-1).getHeight()+1));
-                m_botBorder.add(new BotBorder(BitmapFactory.decodeResource(getResources(),R.drawable.brick),
-                        i*20, m_botBorder.get(i-1).getY()-1));
-            }
-     */
-    // TODO: set the height to decrease with the score
-    /*
-    // Calculate the threshold of height the border can have based on the score
-            // Max and min border heart are updated, and the border switched direction when either max or min is met
-            m_maxBorderHeight = 30+ player.getScore()/m_progressDenom;
-            // Cap max border height so that borders can only take up a total of 1/2 the screen
-            if (m_maxBorderHeight > HEIGHT/4) m_maxBorderHeight = HEIGHT/4;
-            m_minBorderHeight = 5+ player.getScore()/m_progressDenom;
-     */
+
+
+
 }
