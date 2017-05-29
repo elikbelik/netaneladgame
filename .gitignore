@@ -140,3 +140,6 @@ build/intermediates/dex-cache/cache.xml
 .gradle/3.3/taskArtifacts/taskArtifacts.bin
 .gradle/3.3/taskArtifacts/taskArtifacts.lock
 .idea/misc.xml
+*.bin
+*.lock
+.idea/misc.xml
