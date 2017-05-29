@@ -52,4 +52,6 @@ public abstract class GameObject {
     }
 
     public boolean removeWhenDead () { return false; }
+
+    public boolean hideWhenDead () { return false; }
 }

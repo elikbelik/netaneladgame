@@ -40,4 +40,9 @@ public class Smokepuff extends GameObject{
     public boolean removeWhenDead() {
         return true;
     }
+
+    @Override
+    public boolean hideWhenDead() {
+        return true;
+    }
 }
