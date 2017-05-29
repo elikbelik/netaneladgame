@@ -9,7 +9,7 @@ public class Player extends AnimatedGameObject {
     private static final int DY_INCREASE_RATE = 1;
     private static final int MIN_DY = -14;
     private static final int MAX_DY = 14;
-    private static final int ACCELERATION = 2;
+    private static final double ACCELERATION = 1.5;
     private int score;
     private boolean isUp;
     private boolean isPlaying;
@@ -43,7 +43,7 @@ public class Player extends AnimatedGameObject {
         if (dy >MAX_DY) dy = MAX_DY;
         if (dy <MIN_DY) dy = MIN_DY;
 
-        y += dy *ACCELERATION;
+        y += (int) dy *ACCELERATION;
         if (y < 0) {
             y = 0;
             resetDy();

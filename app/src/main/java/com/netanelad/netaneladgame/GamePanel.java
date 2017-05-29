@@ -15,14 +15,13 @@ import android.view.SurfaceView;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * Created by elad on 08/03/2017.
- */
-
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
+    // To save preferences and scores
     public static final String PREF_NAME = "pref";
     public static final String PREF_SCORE_NAME = "score";
+
+    // Game parameters
     public static final int WIDTH = 856;
     public static final int HEIGHT = 480;
     public static final int MOVESPEED = -5;
