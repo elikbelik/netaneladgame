@@ -1,7 +1,5 @@
 app/app.iml
 local.properties
-build/intermediates/dex-cache/cache.xml
 .idea/misc.xml
-
 *.xml
 *.rawproto
