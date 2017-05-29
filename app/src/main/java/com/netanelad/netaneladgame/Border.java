@@ -7,8 +7,10 @@ import android.graphics.BitmapFactory;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Border extends GameObject{
-    public enum BorderType {Top, Bottom};
+public class Border extends GameObject {
+    public enum BorderType {Top, Bottom}
+
+    ;
     public static final int BORDER_WIDTH = 20;
     private static final int BORDER_HEIGHT = 200;
     // Increase to slow down difficulty progression, decrease to speed up difficulty progression
@@ -23,7 +25,7 @@ public class Border extends GameObject{
     private BorderType borderType;
 
     public Border(Context context, int x, int h, BorderType t) {
-        super(x, (t==BorderType.Bottom) ? GamePanel.HEIGHT-h : h-BORDER_HEIGHT,
+        super(x, (t == BorderType.Bottom) ? GamePanel.HEIGHT - h : h - BORDER_HEIGHT,
                 GamePanel.MOVESPEED, 0, BORDER_WIDTH, BORDER_HEIGHT,
                 BitmapFactory.decodeResource(context.getResources(), R.drawable.brick));
         borderType = t;
@@ -32,7 +34,7 @@ public class Border extends GameObject{
         if (!counter.containsKey(borderType))
             counter.put(borderType, 1);
         else
-            counter.put(borderType, counter.get(borderType)+1);
+            counter.put(borderType, counter.get(borderType) + 1);
 
         lastHeight = h;
     }
@@ -40,16 +42,16 @@ public class Border extends GameObject{
     public void update() {
         x += dx;
         // Borders reset themselves
-        if (x+width < 0) {
-            x += width*counter.get(borderType);
+        if (x + width < 0) {
+            x += width * counter.get(borderType);
             lastHeight += movementDirection;
-            y = ((borderType==BorderType.Bottom) ? GamePanel.HEIGHT-lastHeight : lastHeight-BORDER_HEIGHT);
-            int maxBorderHeight = Math.min(BORDER_HEIGHT, MIN_MAX_HEIGHT + score/PROGRESS_DENUM);
-            int minBorderHeight = MIN_MIN_HEIGHT+ score/PROGRESS_DENUM;
+            y = ((borderType == BorderType.Bottom) ? GamePanel.HEIGHT - lastHeight : lastHeight - BORDER_HEIGHT);
+            int maxBorderHeight = Math.min(GamePanel.HEIGHT / 4, Math.min(BORDER_HEIGHT, MIN_MAX_HEIGHT + score / PROGRESS_DENUM));
+            int minBorderHeight = maxBorderHeight+MIN_MIN_HEIGHT-MIN_MAX_HEIGHT;
             // Replace direction if needed
-            if (lastHeight>=maxBorderHeight)
+            if (lastHeight >= maxBorderHeight)
                 movementDirection = -1;
-            else if (lastHeight<=minBorderHeight)
+            else if (lastHeight <= minBorderHeight)
                 movementDirection = 1;
         }
     }
@@ -59,14 +61,14 @@ public class Border extends GameObject{
         return true;
     }
 
-    public static void resetBordersCounter () {
+    public static void resetBordersCounter() {
         for (BorderType k : counter.keySet()) {
-            counter.put(k,0);
+            counter.put(k, 0);
         }
         score = 0;
     }
 
-    public static void updateScore (int s) {
+    public static void updateScore(int s) {
         score = s;
     }
 }
