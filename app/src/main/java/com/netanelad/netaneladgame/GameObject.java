@@ -44,4 +44,12 @@ public abstract class GameObject {
         }
         catch (Exception e) {}
     }
+
+    public boolean isColidable () { return true; }
+
+    public boolean shouldRemove () {
+        return y+width < 0;
+    }
+
+    public boolean removeWhenDead () { return false; }
 }

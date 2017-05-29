@@ -23,4 +23,9 @@ public class Explosion extends AnimatedGameObject {
             super.update();
         }
     }
+
+    @Override
+    public boolean isColidable() {
+        return false;
+    }
 }

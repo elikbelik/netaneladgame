@@ -4,20 +4,17 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-/**
- * Created by elad on 28/04/2017.
- */
-
 public class Smokepuff extends GameObject{
-    public static final int RADIUS = 5;
-    public static final int MOVESPEED = 10;
-    public static final int CIRCLE_2_OFFSET_X = 2;
-    public static final int CIRCLE_2_OFFSET_Y = -2;
-    public static final int CIRCLE_3_OFFSET_X = 4;
-    public static final int CIRCLE_3_OFFSET_Y = 1;
+    private static final int RADIUS = 5;
+    private static final int MOVESPEED = 10;
+    private static final int CIRCLE_2_OFFSET_X = 2;
+    private static final int CIRCLE_2_OFFSET_Y = -2;
+    private static final int CIRCLE_3_OFFSET_X = 4;
+    private static final int CIRCLE_3_OFFSET_Y = 1;
+    private static final int ABSTRACT_WIDTH = 1;
 
     public Smokepuff(int x, int y) {
-        super(x,y,0,0,0,0,null);
+        super(x,y,0,0,ABSTRACT_WIDTH,0,null);
     }
 
     public void draw (Canvas canvas) {
@@ -32,5 +29,15 @@ public class Smokepuff extends GameObject{
 
     public void update() {
         x -= MOVESPEED;
+    }
+
+    @Override
+    public boolean isColidable() {
+        return false;
+    }
+
+    @Override
+    public boolean removeWhenDead() {
+        return true;
     }
 }
