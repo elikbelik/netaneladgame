@@ -7,13 +7,13 @@ import android.graphics.BitmapFactory;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TopBorder extends GameObject{
+public class Border extends GameObject{
     public enum BorderType {Top, Bottom};
     public static final int BORDER_WIDTH = 20;
     private static final int BORDER_HEIGHT = 200;
     // Increase to slow down difficulty progression, decrease to speed up difficulty progression
     private static final int PROGRESS_DENUM = 20;
-    private static final int MIN_MAX_HEIGHT = 30;
+    private static final int MIN_MAX_HEIGHT = 60;
     private static final int MIN_MIN_HEIGHT = 5;
     private static int score = 0;
     private static int lastHeight = 0;
@@ -22,8 +22,9 @@ public class TopBorder extends GameObject{
     private Bitmap m_image;
     private BorderType borderType;
 
-    public TopBorder (Context context, int x, int h, BorderType t) {
-        super(x, (t==BorderType.Bottom) ? GamePanel.HEIGHT-h : h-BORDER_HEIGHT, GamePanel.MOVESPEED, 0, BORDER_WIDTH, BORDER_HEIGHT,
+    public Border(Context context, int x, int h, BorderType t) {
+        super(x, (t==BorderType.Bottom) ? GamePanel.HEIGHT-h : h-BORDER_HEIGHT,
+                GamePanel.MOVESPEED, 0, BORDER_WIDTH, BORDER_HEIGHT,
                 BitmapFactory.decodeResource(context.getResources(), R.drawable.brick));
         borderType = t;
 
@@ -41,16 +42,14 @@ public class TopBorder extends GameObject{
         // Borders reset themselves
         if (x+width < 0) {
             x += width*counter.get(borderType);
-            y += movementDirection;
             lastHeight += movementDirection;
-            y = (borderType==BorderType.Bottom) ? GamePanel.HEIGHT-height : height-BORDER_HEIGHT;
+            y = ((borderType==BorderType.Bottom) ? GamePanel.HEIGHT-lastHeight : lastHeight-BORDER_HEIGHT);
             int maxBorderHeight = Math.min(BORDER_HEIGHT, MIN_MAX_HEIGHT + score/PROGRESS_DENUM);
             int minBorderHeight = MIN_MIN_HEIGHT+ score/PROGRESS_DENUM;
-            int h = (borderType==BorderType.Bottom) ? GamePanel.HEIGHT-y : y-BORDER_HEIGHT;
             // Replace direction if needed
-            if (h>=maxBorderHeight)
+            if (lastHeight>=maxBorderHeight)
                 movementDirection = -1;
-            else if (h<=minBorderHeight)
+            else if (lastHeight<=minBorderHeight)
                 movementDirection = 1;
         }
     }
@@ -75,7 +74,7 @@ public class TopBorder extends GameObject{
     // TODO: Every 40 points insert randomly placed bot blocks that break the pattern
     /* Orig data:
     if (player.getScore()%50 == 0) {
-        m_topBorder.add(new TopBorder(BitmapFactory.decodeResource(getResources(), R.drawable.brick),
+        m_topBorder.add(new Border(BitmapFactory.decodeResource(getResources(), R.drawable.brick),
             m_topBorder.get(m_topBorder.size()-1).getX()+20,0,(int)(m_rand.nextDouble()*m_maxBorderHeight)+1));
 
                     // Every 40 points insert randomly placed top blocks that break the pattern

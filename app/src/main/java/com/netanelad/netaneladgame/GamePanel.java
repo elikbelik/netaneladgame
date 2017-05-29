@@ -127,7 +127,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         if (player.getPlaying()) {
             bg.update();
             player.update();
-            TopBorder.updateScore(player.getScore());
+            Border.updateScore(player.getScore());
 
             // Add missiles on timer
             long missileElapsed = (System.nanoTime()- missilesStartTime)/1000000;
@@ -222,6 +222,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 i--;
             }
         }
+        Border.resetBordersCounter();
 
         m_minBorderHeight = 5;
         m_maxBorderHeight = 30;
@@ -237,11 +238,11 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         player.resetScore();
 
         // Create initial borders
-        for (int i=0; i*20<WIDTH+40; i++) {
-            // TopBorder
-            objectsList.add(new TopBorder(getContext(), i*TopBorder.BORDER_WIDTH, 10+i, TopBorder.BorderType.Top));
+        for (int i=0; i*Border.BORDER_WIDTH<WIDTH+40; i++) {
+            // Border
+            objectsList.add(new Border(getContext(), i* Border.BORDER_WIDTH, 10+i, Border.BorderType.Top));
             // BotBorder
-            objectsList.add(new TopBorder(getContext(), i*TopBorder.BORDER_WIDTH, 10+i, TopBorder.BorderType.Bottom));
+            objectsList.add(new Border(getContext(), i* Border.BORDER_WIDTH, 10+i, Border.BorderType.Bottom));
         }
 
         m_newGameCreated = true;
