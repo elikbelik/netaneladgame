@@ -69,28 +69,4 @@ public class Border extends GameObject{
     public static void updateScore (int s) {
         score = s;
     }
-
-    // TODO: Every 50 points insert randomly placed top blocks that break the pattern
-    // TODO: Every 40 points insert randomly placed bot blocks that break the pattern
-    /* Orig data:
-    if (player.getScore()%50 == 0) {
-        m_topBorder.add(new Border(BitmapFactory.decodeResource(getResources(), R.drawable.brick),
-            m_topBorder.get(m_topBorder.size()-1).getX()+20,0,(int)(m_rand.nextDouble()*m_maxBorderHeight)+1));
-
-                    // Every 40 points insert randomly placed top blocks that break the pattern
-        if (player.getScore()%40 == 0) {
-            m_botBorder.add(new BotBorder(BitmapFactory.decodeResource(getResources(), R.drawable.brick),
-                    m_botBorder.get(m_botBorder.size()-1).getX()+20,(int)(m_rand.nextDouble()*m_maxBorderHeight)+HEIGHT-m_maxBorderHeight));
-        }
-        for (int i=0; i<m_botBorder.size(); i++) {
-            m_botBorder.get(i).update();
-            if (m_botBorder.get(i).getX()<-20) {
-                // Remove element of arraylist, replace it by adding a new one
-                m_botBorder.remove(i);
-                i--;
-
-    */
-
-
-
 }

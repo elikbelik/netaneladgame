@@ -25,8 +25,6 @@ public class Game extends Activity {
 
 /*
 TODO:
-- Add to the Git. (Elad)
-- Refactor to the code, so it will be pretty! (Elad)
 - Redisgn the sprites. (Net)
 - Change background, so it will change color from day to night. (Net)
 - Add sound effects. (Net)
@@ -34,12 +32,3 @@ TODO:
 - Add voice command! (Elad)-
  */
 
-/*
-TODO: ELAD:
-- Make botborder and topborder the same class
-- Code cleanup in GamePanel
-    - Use single array for all
-    - Create function that is "collision" and one that is not if not relevant
-    - Set the text an object itself?
-    - Clean m_*
- */
