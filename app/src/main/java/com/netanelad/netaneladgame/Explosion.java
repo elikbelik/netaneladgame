@@ -17,14 +17,14 @@ public class Explosion extends AnimatedGameObject {
                 R.drawable.explosion),EXPLOSION_NUM_FRAMES,IMAGES_PER_ROW);
         this.context = context;
         //MediaPlayer.create( getApplicationContext(), R.raw.explosion).start();
+        Sounds sounds = new Sounds();
+        sounds.play_explosion_sound(this.context);
     }
 
     @Override
     public void draw (Canvas canvas) {
         if (!animation.playedOnce()) {
             super.draw(canvas);
-            Sounds sounds = new Sounds();
-            sounds.play_explosion_sound(this.context);
         }
     }
 
