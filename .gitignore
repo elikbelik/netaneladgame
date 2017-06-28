@@ -21,40 +21,12 @@ local.properties
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock
 .gradle/3.3/taskArtifacts/fileHashes.bin
-<<<<<<< HEAD
-=======
-*.bin
-*.lock
-=======
-d24627f8bd00e9b79c4252d794839afd51d99e61
->>>>>>> 5f5ca6878c4e7294d77b2565700be5e5e9fc98d2
-*.bin
-*.lock
-*.bin
-*.lock
-*.bin
-*.lock
-*.xml
-<<<<<<< HEAD
 *.gradle
-*.bin
-*.bin
-*.lock
 *.properties
 *.jar
-=======
->>>>>>> a8dcf843090e9bb3e17609a1dd082574a95df5a6
 *.properties
 *.iml
-*.properties
-<<<<<<< HEAD
 build.gradle
 build/generated/mockable-android-25.jar
 build/intermediates/dex-cache/cache.xml
 local.properties
-=======
->>>>>>> 3fa68e602d42ee6b15a8440d3a47bf61c07d833d
-*.bin
-*.lock
-*.xml
->>>>>>> a8dcf843090e9bb3e17609a1dd082574a95df5a6
