@@ -27,6 +27,7 @@ public class Game extends Activity {
 TODO:
 - Change background, so it will change color from day to night. (Net)
 - Add voice command! (Elad)-
-- Make the borders to move up and down if needed when player takes a pill!
+- Make the borders to move up and down if needed when player takes a pill! (Elad)
+- Eating pills (adding them to code) (Net)
  */
 

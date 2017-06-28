@@ -15,7 +15,7 @@ public class Background {
 
     final static int[] POSSIBLE_BACKGROUNDS = {R.drawable.bg1, R.drawable.bg2, R.drawable.bg3};
     final static int TIME_TO_CHANGE_BACKGROUND = 10000;
-    final static int STEP_ALPHA = 10;
+    final static int STEP_ALPHA = 5;
     private Bitmap image;
     private ArrayList<Bitmap> backImages;
     private int x, y, dx;
