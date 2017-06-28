@@ -25,10 +25,7 @@ public class Game extends Activity {
 
 /*
 TODO:
-- Redisgn the sprites. (Net)
 - Change background, so it will change color from day to night. (Net)
-- Add sound effects. (Net)
-- Teach Nethanel the code. (Elad)
 - Add voice command! (Elad)-
 - Make the borders to move up and down if needed when player takes a pill!
  */

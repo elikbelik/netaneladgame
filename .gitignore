@@ -1,3 +1,5 @@
+.idea*
+.idea/*
 app/app.iml
 local.properties
 .idea/misc.xml
@@ -11,9 +13,6 @@ local.properties
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock
 .idea/vcs.xml
-*.bin
-*.lock
-*.xml
 .gradle/3.3/taskArtifacts/fileHashes.bin
 .gradle/3.3/taskArtifacts/fileSnapshots.bin
 .gradle/3.3/taskArtifacts/taskArtifacts.bin
@@ -21,23 +20,11 @@ local.properties
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock
 .gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock
-<<<<<<< HEAD
 .gradle/3.3/taskArtifacts/fileHashes.bin
-*.bin
-*.lock
-=======
-d24627f8bd00e9b79c4252d794839afd51d99e61
->>>>>>> 5f5ca6878c4e7294d77b2565700be5e5e9fc98d2
-*.bin
-*.lock
-*.bin
-*.lock
-*.bin
-*.lock
-*.xml
 *.properties
-*.bin
-*.lock
-*.xml
 *.iml
 *.properties
+build.gradle
+build/generated/mockable-android-25.jar
+build/intermediates/dex-cache/cache.xml
+local.properties

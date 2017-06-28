@@ -2,22 +2,130 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="D:\Code\git_code\netaneladgame\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\elad\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="0a5e7af48a7fe545ca38d80f7c539ea8dd307258">
-        <dex dex="D:\Code\git_code\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_d3e9abacec6bfc532d4b101090543dfe980b8d49\classes.dex" />
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_5735641894f902e5033d5d44f2d14079e50c85b9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\elad\.android\build-cache\117b7a5b4ee6f51b99b87be5945bdf64dc290970\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\pre-dexed\debug\classes_61b41087dc19e7c26fc7f372db545bfed5d61be1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\elad\.android\build-cache\6a2c1c686d6b9e23884a199f5d4afa028c38fdbf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\pre-dexed\debug\classes_ee24ea4de79eb139648fb2b98dcb210fa202778b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\elad\.android\build-cache\c98d3b0bc3ef8d383c9772db0a60d71e095209bd\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\pre-dexed\debug\classes_5609dba68bf4a22743e8dcc1611be536796752c8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\elad\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-beta5\constraint-layout-solver-1.0.0-beta5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ff0dad5e4fc720f478ce8b5f6edf76a932d9b886">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.0-beta5_9ee1f103ddef26e83056b2bf98cf0bfee57e0c09.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\elad\.android\build-cache\8a555400b505c919430fc1733df5c59880a90ce4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\pre-dexed\debug\classes_ceba77d98f0ab54934a7ede5377e9b561599d335.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\elad\.android\build-cache\ae6013877a6119259bbf61d0fc682b2e86214d89\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\pre-dexed\debug\classes_705f4e32c8fa5b693c8a0dcfd9e41a54b169aaa9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\elad\.android\build-cache\0a1948b6b4b0f9e41e090d194b4f190077ca0740\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\pre-dexed\debug\classes_1dc9ab0a43c74dd700c5606d4e7565cce373db45.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\elad\.android\build-cache\0860efca83c42290f936ab63c257201e25042fb8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\pre-dexed\debug\classes_ddfba08e112d7974dfa1e207ecb7093f7acf6e48.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\elad\.android\build-cache\716b3c319570298415459a4b08ff0a2e67afc4ae\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dce0f3de11781e1ee758cba483871b598c9d4931">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\pre-dexed\debug\classes_8de5e255b3fe2634867678991221e8e57b6d926e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\elad\.android\build-cache\9fc9573169c14c85fdbf48a36742a67f18fc29c1\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\pre-dexed\debug\classes_a7cf60e69566a1413f9c8704518f6214ade48648.jar" />
     </item>
     <item
         is-multidex="true"
-        jar="D:\Code\git_code\netaneladgame\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="D:\Code\git_code\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_dea45ef0cbed115e3df87973ba048e4d555999db\classes.dex" />
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_1fe6eedae833057f3d55b6563879be670b4e8230\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ff2dde7bf817c53887ea85c1c80f3aec76d52e88">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_dd8638af264c4bfaf9db58b2f911d124ec13035c\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\elad\.android\build-cache\fe2b793146d9a9b51b24c31a42754cfaac7e3a13\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="C:\Users\elad\work\Code\git_code\netaneladgame\app\build\intermediates\pre-dexed\debug\classes_287e50689d9d6ac4ac47168be6a77cab9037ddda.jar" />
     </item>
 
 </items>

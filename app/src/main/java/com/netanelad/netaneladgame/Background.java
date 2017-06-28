@@ -1,6 +1,8 @@
 package com.netanelad.netaneladgame;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
 
@@ -9,8 +11,8 @@ public class Background {
     private Bitmap image;
     private int x, y, dx;
 
-    public Background(Bitmap res) {
-        image = res;
+    public Background(Context context) {
+        image = BitmapFactory.decodeResource(context.getResources(), R.drawable.grassbg1);
         dx = GamePanel.MOVESPEED;
         x = 0;
         y = 0;

@@ -1,6 +1,8 @@
 package com.netanelad.netaneladgame;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
 public class Player extends AnimatedGameObject {
@@ -15,8 +17,10 @@ public class Player extends AnimatedGameObject {
     private boolean isPlaying;
     private long startTime;
 
-    public Player(Bitmap res, int w, int h, int numFrames) {
-        super(X_POSITION,GamePanel.HEIGHT/2,0,0,w,h,res,numFrames,numFrames);
+    public Player(Context context, int w, int h, int numFrames) {
+        super(X_POSITION,GamePanel.HEIGHT/2, 0, 0, w, h,
+                BitmapFactory.decodeResource(context.getResources(), R.drawable.helicopter),
+                numFrames, numFrames);
         score = 0;
         startTime = System.nanoTime();
     }
