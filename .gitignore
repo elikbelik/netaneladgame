@@ -35,9 +35,21 @@ d24627f8bd00e9b79c4252d794839afd51d99e61
 *.bin
 *.lock
 *.xml
+<<<<<<< HEAD
 *.gradle
 *.bin
 *.bin
 *.lock
 *.properties
 *.jar
+=======
+*.properties
+*.bin
+*.lock
+*.xml
+*.iml
+*.properties
+>>>>>>> 3fa68e602d42ee6b15a8440d3a47bf61c07d833d
+*.bin
+*.lock
+*.xml

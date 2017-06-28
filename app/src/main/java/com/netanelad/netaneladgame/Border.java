@@ -8,9 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Border extends GameObject {
-    public enum BorderType {Top, Bottom}
+    public enum BorderType {Top, Bottom};
 
-    ;
     public static final int BORDER_WIDTH = 20;
     private static final int BORDER_HEIGHT = 200;
     // Increase to slow down difficulty progression, decrease to speed up difficulty progression

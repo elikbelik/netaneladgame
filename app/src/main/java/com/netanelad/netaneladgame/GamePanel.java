@@ -47,7 +47,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private boolean dissapear;
     private boolean notFirstRun = false;
     private int bestScore;
-    SharedPreferences sharedPref;
+    private SharedPreferences sharedPref;
+    private Sounds sounds;
 
 
     public GamePanel(Context context) {
@@ -71,6 +72,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         objectsList = new ArrayList<GameObject>();
         smokeStartTime = System.nanoTime();
         missilesStartTime = System.nanoTime();
+        sounds = new Sounds(getContext());
 
         thread = new MainThread(getHolder(), this);
         // We can safely start the game
@@ -155,6 +157,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 reset = true;
                 dissapear = true;
                 explosion = new Explosion(getContext(), player.getX(), player.getY()-EXPLOSION_LOCATION_OFFSET);
+                if (notFirstRun)
+                    sounds.play_explosion_sound();
             }
             explosion.update();
             long resetElapsed = (System.nanoTime()- resetstartTime)/MainThread.SEC_TO_MILI;
