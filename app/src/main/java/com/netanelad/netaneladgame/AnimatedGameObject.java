@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 public abstract class AnimatedGameObject extends GameObject {
     private static final int DELAY_TIME = 10;
     protected Bitmap spriteSheet;
-    protected Animation animation = new Animation();
+    protected Animated animation = new Animated();
 
     public AnimatedGameObject(int x, int y, int dx, int dy, int w, int h, Bitmap res, int numFrames, int framesPerRow) {
         super(x,y,dx,dy,w,h,null);

@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.view.animation.AlphaAnimation;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -25,10 +24,12 @@ public class Background {
     private long backStartTime;
     private Paint backPaint;
     private int alpha;
+    private Context context;
 
 
     public Background(Context context) {
         image = BitmapFactory.decodeResource(context.getResources(), R.drawable.background);
+        this.context = context;
         dx = GamePanel.MOVESPEED;
         x = 0;
         y = 0;
@@ -59,7 +60,6 @@ public class Background {
             canvas.drawBitmap(backImages.get(previousBackgroundIndex), 0, 0, backPaint);
             alpha -= STEP_ALPHA;
         }
-
         canvas.drawBitmap(image, x, y, null);
         if (x <0) {
             canvas.drawBitmap(image, x +GamePanel.WIDTH, y, null);

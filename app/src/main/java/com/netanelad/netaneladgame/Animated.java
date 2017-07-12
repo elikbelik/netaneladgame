@@ -3,7 +3,7 @@ package com.netanelad.netaneladgame;
 
 import android.graphics.Bitmap;
 
-public class Animation {
+public class Animated {
 
     private Bitmap[] frames;
     private int currentFrame;
