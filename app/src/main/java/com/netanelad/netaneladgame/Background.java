@@ -56,8 +56,7 @@ public class Background {
         canvas.drawBitmap(backImages.get(currentBackgroundIndex), 0, 0, null);
         if (alpha > 0) {
             backPaint.setAlpha(alpha);
-            //canvas.drawBitmap(backImages.get(previousBackgroundIndex), 0, 0, backPaint);
-            canvas.drawBitmap(backImages.get(previousBackgroundIndex), 0, 0, null);
+            canvas.drawBitmap(backImages.get(previousBackgroundIndex), 0, 0, backPaint);
             alpha -= STEP_ALPHA;
         }
 
